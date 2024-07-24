@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: #000033;
+    animation: blueGlowBg 4s ease-in-out infinite alternate;
+}
+
+@keyframes blueGlowBg {
+    from {
+        background-color: #000033;
+    }
+    to {
+        background-color: #0033cc;
+    }
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 480px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#timer, #flags {
+    font-size: 24px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+#controls {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#restart, #instructions {
+    padding: 10px 20px;
+    background-color: #333;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#restart:hover, #instructions:hover {
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+#minesweeper {
+    display: grid;
+    grid-template-columns: repeat(6, 60px);
+    gap: 4px;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: 3px solid #cccccc;
+    color: #333333;
+    transition: all 0.3s ease;
+    animation: whiteGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes whiteGlow {
+    from {
+        box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    }
+    to {
+        box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    }
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+
+.cell.revealed {
+    background-color: #333;
+    border: 3px solid #00ff00;
+    color: #00ff00;
+    animation: greenGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes greenGlow {
+    from {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+    to {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+}
+
+.cell.flagged {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+    animation: redGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes redGlow {
+    from {
+        box-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b;
+    }
+    to {
+        box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b;
+    }
+}
+
+#instructionsModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: #1a1a1a;
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+    width: 400px;
+    color: #ffffff;
+    box-shadow: 0 0 20px #ffffff;
+}
+
+#instructionsModal h2 {
+    margin-top: 0;
+    font-size: 28px;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+#instructionsModal p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+#closeInstructions {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#closeInstructions:hover {
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
